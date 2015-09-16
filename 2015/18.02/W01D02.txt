@@ -1,0 +1,314 @@
+Determinant: m by n matrix. m row n column. 
+a b c … n
+d e f … o
+… … … … … 
+x y z … i 
+
+If matrix is square, has a determinant. m = n
+det A or |A| 
+
+Eg. 1. 2x2 
+M = [
+[a, b], 
+[c, d]]
+
+det A = |A| = ad-bc        Cross product?!
+Product of diagonals - product of anti diagonals
+
+det [[1,2], [3,4]] = 1*4 - 2*3 = -2
+
+Eg 3x3
+
+B = [
+[1,2,3],
+[4,5,6],
+[7,8,9]]
+
+rearrange: 
+
+1 2 3 | 1 2
+4 5 6 | 4 5
+7 8 9 | 7 8
+
+1*5*9 + 2*6*7 + 3*4*8 - 3*5*7 - 1*6*8 - 2*4*9 
+45 + 84 + 96 - 105 - 72 - 48 = 225 - 225 = 0
+
+General NxN - cofactor expansion: 
+sum cofactors along any row or column
+
+Def
+i.j minor = determinant of matrix left after removing row i, column j
+
+i, j hat cofactor = (i.j minor) * (-1)^(i+j) 
+checkerboard:
++ - + 
+- + -
++ - +
+
+det (
+A1 A2 A3
+B1 B2 B3
+C1 C2 C3
+)
+
+=
+
+A1 * 
+det (
+B2 B3
+C2 C3     1,1 minor
+)
+
+- 
+
+A2 *
+det (
+B1 B3
+C1 C3     1,2 minor
+)
+
++ 
+
+A3 *
+det (
+B1 B2
+C1 C2     1,3 minor
+)
+
+=
+
+A1 * 
+det (
+B2 B3
+C2 C3     1,1 minor
+)
+
+- 
+
+B1 *
+det (
+A2 A3
+C2 C3     2,1 minor
+)
+
++ 
+
+C1 *
+det (
+A2 A3
+B2 B3     3,1 minor
+)
+
+Note: same result along any row or column.
+      to make it easier, use row or column with most 0’s
+
+Ex.
+
+det(
+1 2 3
+4 5 6
+7 8 9
+)
+
+= 
+
+-2 * 
+det (
+4 6
+7 9
+)
+
++ 
+
+5 * 
+det (
+1 3
+7 9
+)
+
+- 
+
+8 *
+det (
+1 3
+4 6
+)
+
+= 
+
+-2(36-42) + 5(9-21) - 8(6-12)
+
+= 0
+
+
+
+Handy facts:
+
+1. exchange 2 adjacent Browns, determinant flips sign.
+2. if 2 rows are identical, det is 0
+3. add/sub one row from another, det is same. 
+
+What does it mean??
+2x2: 
+det( [[A1,A2], [B1,B2]] ) = area of parallelogram formed by 
+vectors A = <A1, A2> and B = <B1, B2>
+
+3x3: 
+Same as above, but volume. 
+det ( [[A1,A2,A3],[B1,B2,B3],[C1,C2,C3]] ) = 
+volume of cube by vectors:
+A = <A1, A2, A3>
+B = '' 
+C = ''
+
+Determinants used for calculating vector/cross product. 
+
+A X B = |A| |B| sin(theta) n hat
+
+Vector with length equal to the magnitude of the area of the parallelogram with edges A and B, and with a direction n hat, perpendicular to the page. 
+
+if A = <A1, A1, A3> and B = <B1, B2, B3>,
+
+A X B = 
+
+det (
+i  j  k  
+A1 A2 A3
+B1 B2 B3
+
+= 
+
+i * det (
+B2 B3
+C2 C3
+)
+
+-
+
+j * det (
+B1 B3
+C1 C3
+)
+
++
+
+k * det (
+B1 B2
+C1 C2
+)
+
+Note:
+
+A X B = - B X A
+A X (B X C) != (A X B) X C
+
+Ex.
+
+A = <3,-2,4>
+B = <2,1,,-2>
+
+A X B = 
+
+i * (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

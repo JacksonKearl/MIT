@@ -1,0 +1,10 @@
+Vectors have magnitude and direction.
+Geometric or analytic
+	Geo = arrows, etc
+	anal = coordinates
+
+if vector v is from A to B, -v is from B to A
+
+vectors can be multiplied by scalars. scalars are regular numbers.
+
+

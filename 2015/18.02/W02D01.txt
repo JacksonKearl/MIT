@@ -1,0 +1,7 @@
+Computing the inverse amtrix
+
+A -- compute the minors --> M
+
+take the transpose
+
+divide by |A|
