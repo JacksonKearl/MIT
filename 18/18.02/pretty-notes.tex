@@ -8,6 +8,11 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{csquotes}
+\usepackage{amsmath}
+
+
+
 
 \usepackage[margin=1.25in]{geometry}
 
@@ -57,7 +62,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Book's title and subtitle
-\title{\Huge \textbf{18.02: Multivariate Calculus} \\ \huge Massachusetts Institute of Technology \\ \large As taught by \textsc{Prof. John Bush}}
+\title{\Huge \textbf{18.02: Multivariable Calculus} \\ \huge Massachusetts Institute of Technology \\ \large As taught by \textsc{Prof. John Bush}}
 % Author
 \author{\textsc{Jackson Kearl}}
 
@@ -69,8 +74,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Auto-generated table of contents, list of figures and list of tables %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\cleardoublepage\clearpage
 \tableofcontents
-
+\let\cleardoublepage\clearpage
 \mainmatter
 
 %%%%%%%%%%%
@@ -83,91 +89,199 @@
 come to an end; then stop.''
 \end{chapquote}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna.
+\section*{Course Content}
+This course covers aspects of calculus involving:
+\begin{displayquote}
+Calculus of several variables. Vector algebra in 3-space, determinants, matrices.
+ Vector-valued functions of one variable, space motion. Scalar functions of several variables: partial differentiation, gradient, optimization techniques.  Double integrals and line integrals in the plane; exact differentials and  conservative fields; Green's theorem and applications, triple integrals, line and surface integrals in space, Divergence theorem, Stokes' theorem;  applications.\footnote{\url{http://student.mit.edu/catalog/m18a.html##18.02}}
+\end{displayquote}
 
-\section*{Un-numbered sample section}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis.
 
-\section*{Another sample section}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus.
-
-\section*{Structure of book}
+\section*{Structure of Notes}
 % You might want to add short description about each chapter in this book.
-Each unit will focus on <SOMETHING>.
+Each chapter will focus on some broad concept of the course (along the lines of one chapter per test). Within a chapter, each section approximately corresponds to one lecture. Each section contains an overview of the lecture's concepts, followed by example problems taken from the lecture, recitations, or from homework.
 
-\section*{About the companion website}
-The website\footnote{\url{https://github.com/amberj/latex-book-template}} for this file contains:
+\section*{Distribution}
+All relevant notes and information are made available on github\footnote{\url{https://github.com/JacksonKearl/MIT}}.
+This includes:
 \begin{itemize}
-  \item A link to (freely downlodable) latest version of this document.
-  \item Link to download LaTeX source for this document.
-  \item Miscellaneous material (e.g. suggested readings etc).
+  \item Plaintext notes from lecture and recitation
+  \item The raw .tex source for these PDF's
+  \item These PDF files
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Give credit where credit is due. %
-% Say thanks!                      %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Acknowledgements}
-\begin{itemize}
-\item A special word of thanks goes to Professor Don Knuth\footnote{\url{http://www-cs-faculty.stanford.edu/~uno/}} (for \TeX{}) and Leslie Lamport\footnote{\url{http://www.lamport.org/}} (for \LaTeX{}).
-\item I'll also like to thank Gummi\footnote{\url{http://gummi.midnightcoding.org/}} developers and LaTeXila\footnote{\url{http://projects.gnome.org/latexila/}} development team for their awesome \LaTeX{} editors.
-\item I'm deeply indebted my parents, colleagues and friends for their support and encouragement.
-\end{itemize}
-\mbox{}\\
-%\mbox{}\\
-\noindent Amber Jain \\
-\noindent \url{http://amberj.devio.us/}
+\noindent Licensed under Creative Commons Attribution-ShareAlike 4.0 International License.\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/}}
+
 
 %%%%%%%%%%%%%%%%
 % NEW CHAPTER! %
 %%%%%%%%%%%%%%%%
-\chapter{Matricies, Vectors, and their Basic Operations}
+\chapter{Matrices, Vectors, and their Basic Operations}
 
-\begin{chapquote}{Author's name, \textit{Source of this quote}}
-``This is a quote and I don't know who said this.''
+\begin{chapquote}{Professor J. W. Bush}
+17 39
 \end{chapquote}
 
-\section{Section heading}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \\ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \\ Lorem ipsum list:
+\section{Vectors}
 
-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+\subsection{Scalars vs. Vectors}
+Before entering into vectors, it is necessary to define the concept of a scalar. Most every value dealt with in day to day life is a scalar: from weights of an apple, to the time it takes to fall on your head. \\
+However, things that also have a direction, such as traveling 25 km \emph{northwest} to get to Welesley, are vectors. \\
+Put simply: a vector is a scalar \textbf{with a direction}.
 
-2. Duis ac mi magna, a consectetur elit.
+\subsubsection{Examples}
+The following are various ways to represent a vector going up and to the left equal amounts, with magnitude 1:
 
-3. Curabitur posuere erat \emph{dignissim ligula euismod} ut euismod nisi.
-
-4. Fusce vulputate facilisis neque, et ornare mauris mattis vel.
-
-5. Mauris sit amet nulla mi, vitae rutrum ante.
-
-6. Maecenas quis nulla risus, vel tincidunt ligula.
-
-7. Nullam ac enim neque, non \emph{dapibus} mauris.
-
-8. Integer volutpat leo a orci suscipit eget rhoncus urna eleifend.
-
-\noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna\footnote{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus.}:
-
-\subsection{Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus. Sed vel ligula justo, sit amet vestibulum dolor. Sed vitae augue sit amet magna ullamcorper suscipit. Quisque dictum ipsum a sapien egestas facilisis.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna.
-
-\subsection{Lorem ipsum dolor sit amet, consectetur adipiscing.}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam.
-
-\subsection{Lorem ipsum dolor sit amet}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet\footnote{\url{www.example.com}} erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus. Sed vel ligula justo, sit amet vestibulum dolor. Sed vitae augue sit amet magna ullamcorper suscipit. Quisque dictum ipsum a sapien egestas facilisis.
-
-In hac habitasse platea dictumst. Nullam turpis erat, porttitor ut pretium ac, condimentum sed dui. Praesent arcu elit, tristique sit amet viverra at, auctor quis tortor. Etiam eleifend posuere aliquam. Donec sed mattis sapien. Aenean urna arcu, suscipit at rutrum ac, adipiscing ac felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent condimentum felis a ipsum ullamcorper semper. Vivamus eu odio sem, dictum luctus nunc. Etiam tincidunt venenatis dolor non pellentesque.
-
-\subsection{Lorem ipsum dolor sit amet, auctor et pulvinar non}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus. Sed vel ligula justo, sit amet vestibulum dolor. Sed vitae augue sit amet magna ullamcorper suscipit. Quisque dictum ipsum a sapien egestas facilisis.
-
-In hac habitasse platea dictumst. Nullam turpis erat, porttitor ut pretium ac, condimentum sed dui. Praesent arcu elit, tristique sit amet viverra at, auctor quis tortor. Etiam eleifend posuere aliquam. Donec sed mattis sapien. Aenean urna arcu, suscipit at rutrum ac, adipiscing ac felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent condimentum felis a ipsum ullamcorper semper. Vivamus eu odio sem, dictum luctus nunc. Etiam tincidunt venenatis dolor non pellentesque.
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{v} &= \vec{AB} & \text{Where } A = (0,0) \text{, and } B = (\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2}) \\
+               &= \left<\frac{\sqrt{2}}{2}\hat{i}, \frac{\sqrt{2}}{2}\hat{j} \right>  & \text{Where } \hat{i} \text{ and } \hat{j} \text{ are unit vectors along the axies}\\
+               &= \left<\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2}\right> & \text{Similar to above, but with implied } \hat{i} \text{ and } \hat{j}\\
+               &= \left(1, \frac{\pi}{4}\right) & \text{In polar coordinates}
+\end{align}
 
 
-\section{Another section heading}
+\subsection{Vector Magnitude}
+As previously stated, a vector is a scalar with direction. But what about times when you want only the scalar? This is called the \emph{magnitude} of a vector, and can be represented as $\left| \vec{v} \right|$ for a vector $\vec{v}$. It is computed by taking the square root of the sum of the squares of each component of a given vector. If this sounds similar to the Pythagorean Theorem, that's because they're actually one in the same: the Pythagorean Theorem is a special case where the vectors are of order 2. In equation form, the magnitude of a vector with order $n$ is:
+\begin{align} % requires amsmath; align* for no eq. number
+   \left|\vec{v}\right| &= \sqrt{\sum \limits_{i=1} ^n \vec{v}_i^{\,2}}
+\end{align}
+
+\subsubsection{Example}
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{v} &= \left<2, 4, 9\right> \\ \\
+   \left|\vec{v}\right| &= \sqrt{2^2 + 4^2 + 9^2} \\
+   &= \sqrt{4 + 16 + 81} \\
+   &= \sqrt{101}
+\end{align}
+
+\subsection{The Dot Product}
+The dot product of two vectors can be thought of as a scalar measure of the extent to which they are in the same direction. From this description, along with some rudimentary trigonometric knowledge, a definition for the dot product arises:
+
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{m} \cdot \vec{v} = \left| \vec{m}\right| \left| \vec{v}\right| \cos\left(\theta\right)
+\end{align}
+
+Additionally, the dot product can be computed by multiplying corresponding terms of vectors of the same order together, then summing the results. In a more mathematical notation, the dot product of two order-$n$ vectors, $\vec{m}$ and $\vec{v}$, is:
+
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{m} \cdot \vec{v} = \sum \limits_{i=1} ^n \vec{m}_i \vec{v}_i 
+\end{align}
+
+It can be useful to note that when taking the dot product of a vector with itself, the $\cos \left( \theta \right)$ of Equation 1.11 goes to 1, leaving
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{v} \cdot \vec{v} = \left| \vec{v} \right|^2
+\end{align}\
+Important to note: for any unit vector (represented with a hat, '$\hat{a}$'), its cross with itself will always be its magnitude squared, or 1. 
+ 
+ \subsubsection{Usage and Examples}
+The dot product sees many uses in physics, where it can be important to know how much a force for instance is acting in a given direction. Additionally, through Equation 1.11, the dot product can be used to calculate angles between arbitrary vectors. Some sample problems follow:
+
+\begin{enumerate}
+\item Find the cosine of the angle between the main diagonals of a cube.
+\begin{itemize}
+\item First, find vectors representing the two diagonals.
+For instance:
+\begin{align*} % requires amsmath; align* for no eq. number
+   \vec{v} &= \left<1,1,1\right> & \vec{m} &= \left<-1,1,1\right>
+\end{align*}
+\item Combining Equations 1.11 and 1.12, determine an equation for $\theta$.
+\begin{align*} % requires amsmath; align* for no eq. number
+   \left| \vec{m}\right| \left| \vec{v}\right| \cos\left(\theta\right) &= \sum \limits_{i=1} ^n \vec{m}_i \vec{v}_i  \\ 
+   \sqrt{3} \sqrt{3} \cos\left(\theta\right) &= -1 \cdot 1 + 1 \cdot 1 + 1 \cdot 1 \\
+   \cos\left(\theta\right) &= \frac{1}{3} 
+\end{align*}
+\end{itemize}
+\item Find the component of $\vec{v} = \left<1,-2,4\right>$ along a $\vec{m} = \left<4,2,-3\right>$ direction.
+\begin{itemize}
+\item First, find the amount to which they are in the same direction as each other, using a dot product.
+\begin{align*}
+\left<1,-2,4\right> \cdot \left<4,2,-3\right> &= -12
+\end{align*}
+\item This however is proportional to $\vec{m}$, so in order to remove the relation, one must simply divide by the magnitude of $\vec{m}$.
+\begin{align*}
+ \frac{-12}{\left|\vec{m}\right|}  &= \frac{-12}{\sqrt{29}}
+\end{align*}
+\item Hence, $\vec{v}$ is $\frac{12}{\sqrt{29}}$ units along $\vec{m}$, in a direction opposite to that of $\vec{m}$
+\item This concept is called a \textbf{\emph{projection}}, and is commonly used in math and physics. 
+\end{itemize}
+\end{enumerate}
+
+\subsection{The Cross Product}
+While the dot product measures how much two vectors are in the same direction, the cross product can be thought of as a measure of the extent to which two vectors are in different directions. Once more, this concept, along with some trigonometry, gives a definition for the cross product:
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{m} \times \vec{v} &= \left| \vec{m}\right| \left| \vec{v}\right| \sin\left(\theta\right)  & \text{\emph{In a direction \textbf{perpendicular} to the two vectors.}}
+\end{align}
+This direction component is actually very important in some scenarios. For example, in physics, cross products are uses for concepts such as torque, where the direction of $\vec{r} \times \vec{F}$ yields a torsion normal to the plane of a given circle. 
+\bigskip
+
+Additionally, the cross product can be computed as the \emph{determinant} of the two vectors, represented as a matrix. Deriving a determinant will be covered in more detail in Section 2, but for now a simple formulas for crossing order-2 vectors is as follows:
+\begin{align*} % requires amsmath; align* for no eq. number
+   \vec{m} &= \left<m_{i},m_{j}\right> & \vec{v} &= \left<v_{i},v_{j}\right>\\
+    \vec{r} &= \left<m_{i},m_{j},m_{k}\right> & \vec{s} &= \left<v_{i},v_{j},v_{k}\right>
+   \end{align*}
+\begin{align} % requires amsmath; align* for no eq. number
+     \vec{m} \times \vec{v} &= m_{i}v_{j} - m_{j}v_{i} \\
+    \vec{r} \times \vec{s} &= \left(r_{j}s_{k} - r_{k}s_{j} \right)\hat{i} - \left(r_{i}s_{k} - r_{k}s_{i} \right)\hat{j} + \left(r_{i}s_{j} - r_{j}s_{i} \right)\hat{k}
+\end{align}
+Do not be overly concerned with memorizing this formula. Just know that it is the determinant of the matrix:
+   \[ \begin{pmatrix} % or pmatrix or bmatrix or Bmatrix or ...
+      \hat{i} & \hat{j} & \hat{k} \\
+      r_{i} & r_{j} & r_{k} \\
+      s_{i} &  s_{j} &  s_{k} 
+ \end{pmatrix}\]
+
+\bigskip
+
+It can be useful to note that when taking the dot product of a vector with itself, the $\sin \left( \theta \right)$ of Equation 1.14 goes to 0, leaving:
+\begin{align} % requires amsmath; align* for no eq. number
+   \vec{v} \times \vec{v} = 0
+\end{align}
+
+
+ 
+ \subsubsection{Usage and Examples}
+As previously mentioned, the cross product sees many uses in physics, especially with things involving torque, E\&M, or any other right hand rule oriented field.
+
+Interestingly, the cross product of $n$ order-$n$ vectors can be used to determine the area/volume/etc. of the parallelogram type object formed by joining all those vectors together at one point. To illustrate, sample problems follow:
+
+\begin{enumerate}
+\item Derive a formula for the area of a cube with side length $s$.
+\begin{itemize}
+\item First, find vectors representing the three sides.
+For instance:
+\begin{align*} % requires amsmath; align* for no eq. number
+   \vec{v_1} &= \left<0,0,s\right> & \vec{v_2} &= \left<0,s,0\right> & \vec{v_3} &= \left<s,0,0\right>
+\end{align*}
+\item Next, cross two of the vectors to determine the area of one face of the solid. 
+\begin{align*} % requires amsmath; align* for no eq. number
+   \vec{v_1} \times \vec{v_2}  &= \left(v_{1j}v_{2k} - v_{1k}v_{2j} \right)\hat{i} - \left(v_{1i}v_{2k} - v_{1k}v_{2i} \right)\hat{j} + \left(v_{1i}v_{2j} - v_{1j}v_{2i} \right)\hat{k} \\
+                                               &= \left(s^2\right)\hat{i} - 0\hat{j} + 0\hat{k}
+                                               &= \left(s^2\right)\hat{i}
+\end{align*}
+\item Now, with the area of one face equal to $s^2$, we must go back to the dot product to determine the extent to which this vector normal to this face lies in direction with the third vector coming up out of the face
+\begin{align*} % requires amsmath; align* for no eq. number
+   V  &= (s^2)\hat{i} \cdot \vec{v_3} \\
+                                               &= (s^2)\hat{i} * (s)\hat{i} + 0 + 0 \\
+                                               &= s^3
+\end{align*}
+\item Thus, we show the volume of the cube to be $s^3$. Not earth shattering, but a worthwhile proof of concept. 
+\end{itemize}
+\item Find a unit vector perpendicular to both $\vec{v} = \left<1,-2,4\right>$ and $\vec{m} = \left<4,2,-3\right>$.
+\begin{itemize}
+\item First, find cross product, which will be in a direction perpendicular to both $\vec{v}$ and $\vec{m}$ by definition.
+\begin{align*}
+\left<1,-2,4\right> \times \left<4,2,-3\right> &= \-2\hat{i} + 19\hat{j} + 10\hat{k}
+\end{align*}
+\item While this vector is in the proper direction, it is not of proper magnitude, namely 1, so we must then devide this vectors components by its magnitude.
+\begin{align*}
+ \hat{v}  &= \frac{\-2\hat{i} + 19\hat{j} + 10\hat{k}}{\left| \vec{v} \right|} \\
+             &= \frac{-2\hat{i}}{\sqrt{465}} + \frac{19\hat{j}}{\sqrt{465}} + \frac{10\hat{k}}{\sqrt{465}}
+\end{align*}
+\end{itemize}
+\end{enumerate}
+
+
+\section{Matricies}
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,10 +317,16 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 \noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna\footnote{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus.}:
 
-\subsection{Lorem ipsum dolor sit amet, consectetur adipiscing elit.}
+\subsection{Matrix Addition}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam. Etiam ullamcorper, nunc a accumsan adipiscing, turpis odio bibendum erat, id convallis magna eros nec metus. Sed vel ligula justo, sit amet vestibulum dolor. Sed vitae augue sit amet magna ullamcorper suscipit. Quisque dictum ipsum a sapien egestas facilisis.
 
-\subsection{Lorem ipsum dolor sit amet, consectetur adipiscing}
+\subsection{Matrix Multiplication}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam.
+
+\subsection{Determinants}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam.
+
+\subsection{Inverting a Matrix}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam.
 
 \end{document}
