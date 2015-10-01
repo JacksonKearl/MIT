@@ -1,0 +1,38 @@
+theorem 1
+if def a != 0, Ax = B has unique solution x = A^-1 B
+if def A != 0, Ax = 0 has unique solution x = null vector (trivial)
+
+theorem 2
+if def a = 0, Ax = 0 has infinite num of non trivial solutions
+if def a = 0, Ax = B has either no solution or infinite
+
+     det A         !det A
+B     1           0 or inf
+!B    1 (trivial) 0 or inf
+
+
+for homogenous system:
+2x + y + z = 0
+4x + 0 +3z = 0
+x + cy + 0 = 0
+
+what value of c give non trivial solutions
+
+A non trivial solution for homo system only if det a != 0. 
+
+
+
+Equations of a plane
+
+normal to plane. need point to totally define
+
+find the plane through a point P = (x,y,x) and normal to vector P = (a,b,c)
+
+case 2 
+find the plane through 3 points
+
+P0 = 1,0,0 
+P1 = 1,2,3 
+P2 = 1,1,0
+
+cross P0 and P1 to get vector for plane. 

@@ -1,0 +1,6 @@
+Parametric equations
+consider the motion of a point through space
+displament is prescribed by functions of time
+
+r(t) = x(t)i hat + y(t) j hat + z(t) k hat
+t could be time. or distance traveled. or theta. or anything really. 

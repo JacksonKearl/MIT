@@ -282,7 +282,7 @@ For instance:
 
 
 \section{Matricies}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Where a vector is a one dimensional list of values, a matrix is a two dimensional list, or an \emph{array}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Sample table                                        %
@@ -328,5 +328,39 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor
 
 \subsection{Inverting a Matrix}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis risus ante, auctor et pulvinar non, posuere ac lacus. Praesent egestas nisi id metus rhoncus ac lobortis sem hendrerit. Etiam et sapien eget lectus interdum posuere sit amet ac urna. Aliquam pellentesque imperdiet erat, eget consectetur felis malesuada quis. Pellentesque sollicitudin, odio sed dapibus eleifend, magna sem luctus turpis, id aliquam felis dolor eu diam.
+
+\subsection{Linear Systems}
+A small set of linear equations is trivial to solve such a system using algebraic techniques such as distribution. However, as the matrices get more complicated, Linear Systems provide a more systematic approach. 
+\bigskip
+
+The method relies on the following equation:
+\begin{align*}
+\vec{A}\vec{x} = \vec{B}
+\end{align*}
+
+Where $\vec{A}$ is the matrix of coefficients for a given system, $\vec{x}$ is the unknown array for a solution to the given system,and $\vec{B}$ is the right hand side of a given system. In example: given
+\begin{align*}
+ax + by &= m\\
+cx + dy &= n
+\end{align*}
+then,
+\begin{align*}
+\vec{A} &=    
+\begin{pmatrix} % or pmatrix or bmatrix or Bmatrix or ...
+      a & b \\
+      c & d \\
+ \end{pmatrix} &
+ \vec{x} &=    
+\begin{pmatrix} % or pmatrix or bmatrix or Bmatrix or ...
+       x \\
+       y \\
+ \end{pmatrix} &
+  \vec{B} &=    
+\begin{pmatrix} % or pmatrix or bmatrix or Bmatrix or ...
+       m \\
+       n \\
+ \end{pmatrix}
+ \end{align*}
+
 
 \end{document}

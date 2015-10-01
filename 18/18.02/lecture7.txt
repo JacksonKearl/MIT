@@ -1,0 +1,91 @@
+Curvature
+
+How do we quantify? 
+
+Tangent circle, radius R
+
+Radius of curvature R of curve C at point P:
+is that of the curvature of the tangent circle to the curve
+
+Radius of curvature R > 0 
+Curvature = kappa = 1/R
+
+Curvature in the plane
+
+If phi is the angle that T makes with Ox,
+then: 
+T = cos phi i hat + sin phi j hat
+N = k hat cross T = -sin phi i hat + cos j hat
+
+T cross N = k
+N = k cross T
+-N also normal
+
+if the path is parametric in terms of arc length:
+r(s) = x(s)i + y(s)j
+
+We know T = dr/ds = dx/ds i + dy/ds j
+
+dx/ds = cos phi
+dy/ds = sin phi
+
+if given in form s = s(phi)
+Consider 2 points (s, phi) and (s+ds, phi + d phi).
+As ds -> 0, these points concede, and the circle touching both tangents 
+will have the same radius. , since ds = R d phi 
+
+Radius of Curvature: R = ds/d phi = 1/kappa
+
+kappa = d phi/ds
+ex. 1 : straight line: phi is const, indeed of s
+K = 0, R = 1/k ->
+
+Circle: s = a theta
+phi = theta + pi/2
+K = d phi/ds = 1/a
+
+
+
+CALCULATING K FROM CARTESIAN EQUATIONS FOR A CURVE
+r = x(t)i + y(t)j
+
+T = cos phi i + sin phi j
+dT/ds = (-sin phi i + cos phi j) d phi/ds = kN
+For a trajectroy cureve r = r(t)
+vec(v) = dr/dt = ds/dtT = vT
+vec(a) = dV/dt = d/dt(ds/dt T) = d2s/dt2 T + ds/dt dT/ds ds/dt via chain
+
+Nw since dT/ds = kN, 
+vec(a) = d2s/dt2 T + k(ds/dt)^2N
+For motion in a plane, we thus see the 2 components of acceleration
+
+Linear acceleration: d2s/dt2 = d|v|/dt in tangential dir
+Centripital accel  : 
+kappa(ds/dt)^2 = kappa|v|^2 = v^2/R
+
+m vec(a) = m[d^2s/dt^2 T + v^2/R N^] = sum forces
+
+m d^2s/dt^2 T = sum  foreces - m * V^2/R N
+
+v = |v|  T = vT
+and a = dV/dt T + kappa V^2 N
+
+we find V cross a = V T cross (dv/dt T + kappa v^2 N)
+
+= kappa v^3 TxN = kappa v^3 k
+
+kappa = k * (v cross a)/|v|^3 = |v cross a|/|v|^3
+
+given trajectory equation: 
+
+
+k * (v cross a) = dx/dt d2y/dt2 = dy/d d2x/dt2
+|v|^3 = [(dx/dt)^2 + (dy/dt)^2]^3/2
+
+kappa = x'y'' - y'x'' / (x'^2 + y'^2)^(3/2) = 1/R
+
+for cyrves y = f(x), set x=t, y=f(t)
+
+kappa = 1/R = y''/[1+y'^(3/2)]
+
+

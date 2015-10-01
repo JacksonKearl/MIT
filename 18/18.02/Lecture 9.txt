@@ -1,0 +1,49 @@
+vector fields, gradients
+
+scalar field: z = f(x,y)
+
+gives a z for each x,y
+
+defines surface in 3d,
+ level curves in x, y plane
+
+like a topo map!
+
+Vector Field
+
+F(x,y) -> defines a vector quantity corresponding to each point (x,y)
+
+F = f(x,y)i + f(x,y)j has scalar components, f and f
+
+Ex 1. Flux field
+F = 1/(x^2+y^2) (xi + yj)
+Concentric circles, magnitude decorating as you go outwards
+Such as velocity field by point source at (0,0)
+or electric field
+
+Ex 2. rotational field
+F = -yi + xj = k X r (cross product)
+velocity field associated with solid body rotation 
+
+
+
+Gradient
+indicates the directional rate of change of a scalar function in xy-plane
+
+Def: the gradient=
+grad(f) = partial wrt x i + partial wrt y j + ...
+
+Properties of gradient field:
+perpendicular/normal to level curves/planes
+points up! direction of maximum increase of f
+magnitude gives indication of steepness.
+Note: grad f(x,y) is defined on contour map (x,y plane) but has no z component.
+
+Ex. temperature
+temp = f(x,y)
+grad f(x,y) gives where we should go to warm up. 
+
+Directional derivative
+amount to which a field is changing in a given direction. 
+Just project the gradient onto the direction. 
+ 
