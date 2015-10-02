@@ -1,0 +1,51 @@
+effiencancy is intelligent laziness
+
+
+Directional Derivatives:
+
+directional derivative in direction of v=
+del f dot unit vector in v
+
+f(theta) = arctan(y/x)
+
+del f = theta_x i + theta_y j
+= -y/(x^2+y^2) i + x/(x^2+y^2) j
+
+
+
+GRAD(F) = FX I + FY J + FZ K
+
+Points in direction of increasing f
+
+mag grad f  = directional derivative in direction of del f
+
+perpendicular to level surfaces in 
+
+w = distance from origin
+level surfaces = concentric spheres
+grad w = x/r i + y/r j + z/r k
+= 1/r (xi + yj + zk)
+
+|grad w| = 1/r sqrt(xx + yy + zz) = r/r = 1
+
+
+
+Handy Application!
+find normal vectors to surfaces and tangent planes
+Old way:
+tangent to z=f(x,y) at point p = (p0) is
+z-z0 = fx(p0)(x-x0) + fy(p0)(y-y0)
+
+New way:
+think of surface as level surface.
+the normal to surface is given by grad
+Deduce tangent plane from normal and point
+
+
+
+
+
+
+
+
+
