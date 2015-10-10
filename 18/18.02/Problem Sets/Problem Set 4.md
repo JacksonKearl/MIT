@@ -157,29 +157,29 @@ ___
 1. Plug into Lagrange Multiplier equation, $L(x,y,\lambda) = f(x,y)-\lambda g(x,y)$
     $$L(x, y, \lambda) = (x-3)^2 + (y-2)^2 - \lambda(4x^2 + 9y^2 - 36)$$
 1. Take partials with respect to $x$, $y$, and $\lambda$, and set to $0$:
-    $$\frac{\partial L}{\partial x} = 2x - 6 -8\lambda x= 0 \Longrightarrow x = \frac{\lambda y}{2 - 2\lambda}$$
-    $$\frac{\partial L}{\partial y} = 2y - 4-18\lambda y= 0 \Longrightarrow y = \frac{\lambda x}{2 - 2\lambda}$$
-    $$\frac{\partial L}{\partial \lambda} = x^2 + xy + y^2 - 3 = 0$$
-1. Solve as a system of equations:
+    $$\frac{\partial L}{\partial x} = 2x - 6 -8\lambda x= 0 \Longrightarrow x = \frac{3}{1 - 4\lambda}$$
+    $$\frac{\partial L}{\partial y} = 2y - 4-18\lambda y= 0 \Longrightarrow y = \frac{1}{1 - 9\lambda}$$
+    $$\frac{\partial L}{\partial \lambda} = 4x^2 + 9y^2 - 36 = 0$$
+1. Solve as a system of equations, using CAS software:
     \[
     \begin{align}
-    x &= \frac{\lambda y}{2-2\lambda}& && y &= \frac{\lambda x}{2-2\lambda}\\
-    \frac{x}{y} &= \frac{\lambda}{2-2\lambda}& && \frac{y}{x} &= \frac{\lambda}{2-2\lambda}\\
-    &&\frac{x}{y} &= \frac{y}{x}\\
-    &&x^2 &= y^2\\
-    &&y &= \pm x\\
-    g(x,y) = g(x,x) = 3x^2 - 3 &= 0 &&& g(x,y) = g(x,-x) = x^2-3 &= 0\\
-    3x^2 &= 3 &&& x^2 &= 3\\
-    x^2 &= 1 &&& x^2 &= 3\\
-    x =y &= \pm1 &&& x =-y&= \pm\sqrt{3}\\
+    4x^2 + 9y^2 - 36 &= 0\\
+    4(\frac{3}{1 - 4\lambda})^2 + 9(\frac{1}{1 - 9\lambda})^2 - 36 &= 0\\
+    \lambda &= [0.5026, -0.0242]
     \end{align}
     \]
 1. Substitute back to find $x$ and $y$:
+
+
+    $$(x,y) = (\frac{3}{1 - 4\lambda},\frac{1}{1 - 9\lambda})$$
     \[
-    \begin{align}
-    (x,y) = (1,1),\space(-1,-1),\space(\sqrt{3},-\sqrt{3}),\space(-\sqrt{3},\sqrt{3})
-    \end{align}
+    \begin{eqnarray}
+    &(x,y) &= (\frac{3}{1 - 4(0.5026)},\frac{1}{1 - 9(0.5026)}) &OR& (x,y) &= (\frac{3}{1 - 4(−0.0242)},\frac{1}{1 - 9(−0.0242)})\\
+    &(x,y) &= (-2.969, -28.38) &OR& (x,y) &= (2.735,0.8212)
+    \end{eqnarray}
     \]
+
+
 1. Empirically determine min and max from original $f(x,y)$:
     \[
     \begin{align}
