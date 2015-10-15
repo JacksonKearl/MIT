@@ -14,7 +14,28 @@
 \usepackage{nicefrac}
 \usepackage{breqn}
 \usepackage{pgfplots}
+\usepackage{tikz}
 
+
+\usepackage{titletoc}%
+
+  \titlecontents{chapter}[0em]{\lsstyle\smallskip\bfseries}%\vspace{1cm}%
+  {}%
+  {\itshape\bfseries}%numberless%
+  {\hfill\contentspage}[\medskip]%
+%
+ \titlecontents{section}[4.25em]{\smallskip}%
+  {\contentslabel[\thecontentslabel]{2em}}%numbered
+  {\hspace*{-1em}}%numberless
+  {\hfill\contentspage}[\smallskip]%
+%
+ \titlecontents{subsection}[7em]{}%
+  {\contentslabel[\thecontentslabel]{2.75em}}%numbered
+  {\hspace*{-1em}}%numberless
+  {\hfill\contentspage}[\smallskip]
+
+
+\setcounter{secnumdepth}{0}
 
 \usepackage[margin=1.25in]{geometry}
 
@@ -57,6 +78,14 @@
   {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
 \makeatother
 
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\der}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\peren}[1]{\left( #1 \right)}
+\newcommand{\brac}[1]{\left[] #1 \right]}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % First page of book which contains 'stuff' like: %
 %  - Book title, subtitle                         %
@@ -64,7 +93,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Book's title and subtitle
-\title{\Huge \textbf{18.02: Multivariable Calculus} \\ \huge Problem Set 2 \\ \large As taught by \textsc{Prof.\ John Bush}, MIT}
+\title{\Huge \textbf{18.02: Multivariable Calculus} \\ \huge Problem Set 4 \\ \large As taught by \textsc{Prof.\ John Bush}, MIT}
 % Author
 \author{\textsc{Jackson Kearl}}
 
@@ -121,7 +150,7 @@ This includes:
 %%%%%%%%%%%%%%%%
 \begingroup
 \let\cleardoublepage\clearpage
-\part{}
+\part{Book}
 \endgroup
 
 
@@ -667,7 +696,7 @@ This includes:
     &= \frac{\pi^2}{8} - \frac{\pi}{2}
 \end{align*}
 
-\section{14.2}
+\section{Section 14.2}
 
 \subsection{Problem 2}\label{problem-2}
 \begin{align*}
@@ -710,18 +739,22 @@ This includes:
     &= \left(1-\nicefrac{1}{2}\right)-\left(1-\nicefrac{1}{2}\right)\\
     &= 0
 \end{align*}
-
+\newpage
 \subsection{Problem 26}\label{problem-12}
-\begin{tikzpicture}
-  \begin{axis}[
-    xlabel=$x$,
-    ylabel={$y$}
-  ]
-    \addplot+[mark=none,domain=0:1,samples=60]{x};
-    \addplot+[mark=none,domain=0:1,samples=60]{x^4};
-  \end{axis}
-\end{tikzpicture}
 
+
+\begin{figure}[!h]
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+      \begin{axis}[
+        xlabel=$x$,
+        ylabel={$y$}
+      ]
+        \addplot+[mark=none,domain=0:1,samples=60]{x};
+        \addplot+[mark=none,domain=0:1,samples=60]{x^4};
+      \end{axis}
+    \end{tikzpicture}
+\end{figure}
 
 \begin{align*}
     \int_{0}^{1} \int_{x^4}^{x} (x-1) \hspace{2pt} \mathrm{d}y \hspace{1pt} \mathrm{d}x &=
@@ -892,6 +925,243 @@ The problem is made simpler by invoking the argument of symmetry, and only evalu
 Thus $\left(\bar x, \bar y\right) = (\frac{17}{9},\frac{379}{168})$, or approximately $(1.89,2.26)$.
 
 
+
+\begingroup
+\let\cleardoublepage\clearpage
+\part{Online}
+\endgroup
+
+\chapter{Problem 1}
+\label{chap:Problem 1}
+We start by simpifying the problem to the maximum volume of a right cuboid with a diagonal
+between the origin and a point on the unit sphere in the first octant. We then attempt to maximize
+the volume, $f(x,y,z) = xyz$, under the condition $x^2+y^2+z^2 = 1$, or $g(x,y,z) = x^2+y^2+z^2 -1 =0$,
+using Lagrange Multipliers:
+$$L(x,y,z,\lambda) = xyz - \lambda \left(x^2+y^2+z^2-1\right)$$
+
+Setting $x, y, z$ partials to 0 yields:
+\begin{align*}
+    \pder{L}{x} &= 1 - 2x\lambda = 0 & \pder{L}{y} &= 1 - 2y\lambda = 0 & \pder{L}{z} &= 1 - 2z\lambda = 0\\
+    &&x = y = z &= \frac{1}{2\lambda}&&
+\end{align*}
+Setting $\lambda$ partial to 0 yields:
+\begin{align*}
+    \pder{L}{\lambda} &= x^2 + y^2 + z^2 -1 = 0\\
+    3\left(\frac{1}{2\lambda}\right)^2 &= 1\\
+    \lambda &= \frac{\sqrt{3}}{2}\\
+    x = y = z = \frac{1}{2\lambda} &= \frac{1}{\sqrt{3}}
+\end{align*}
+
+Volume is maximized when $x = y =z = \frac{1}{\sqrt{3}}$, when the box is a cube, with volume $8\left(\frac{1}{\sqrt{3}}\right)^3 = \frac{8}{3\sqrt{3}}$
+
+\chapter{Problem 2}
+\label{chap:Problem 1}
+Function: $$f(x,y) = x^2-2xy+7y^2$$
+Condition: $$x^2 + 4y^2 =1 \Longrightarrow g(x,y) = x^2 + 4y^2 -1 = 0$$
+In Lagrange equation:
+\begin{align*}
+    L(x,y,\lambda) &= f(x,y) - \lambda g(x,y)\\
+    &= x^2-2xy+7y^2 - \lambda \left(x^2 + 4y^2 -1\right)
+\end{align*}
+Setting partials to 0:
+\begin{align*}
+    \pder{L}{x} &= 2x - 2y - 2\lambda x = 0 &&& \pder{L}{y} &= 14y - 2x - 8\lambda y = 0\\
+    x &= \frac{y}{1-\lambda}&&  & y &= \frac{x}{7-4\lambda}\\
+    &&x &= \frac{\frac{x}{2-4\lambda}}{1-\lambda}&&\\
+    && \left(7-4\lambda\right)\left(1-\lambda\right) &= 1&&\\
+    &&  6 - 11\lambda + 4\lambda^2&= 0 && \\
+    && \lambda &= \left[ \nicefrac{3}{4}, 2\right]\\
+    \lambda & = 2 &&& \lambda &= \nicefrac{3}{4}\\
+    x & = \frac{y}{1-2} &&& y &= \frac{x}{7-3}\\
+    x &= -y &&& x &= 4y\\
+    5y^2 - 1 &= 0 &&& 20y^2 &= 1\\
+    y = -x &= \pm\sqrt{\nicefrac{1}{5}} &&& y &= \pm\sqrt{\nicefrac{1}{20}}\\
+    &&&& x = 4y &= \pm\sqrt{\nicefrac{16}{20}}
+\end{align*}
+Plugging back into original equation, maximums are at $f(\sqrt{\nicefrac{1}{5}}, -\sqrt{\nicefrac{1}{5}})$ and $f(-\sqrt{\nicefrac{1}{5}}, \sqrt{\nicefrac{1}{5}})$, where $f(x,y) = 2$, and minumums are at $f(\sqrt{\nicefrac{16}{20}}, \sqrt{\nicefrac{1}{20}})$ and $f(-\sqrt{\nicefrac{16}{20}}, - \sqrt{\nicefrac{1}{20}})$,  where $f(x,y) = \nicefrac{3}{4}$.
+
+
+
+
+\chapter{Problem 3}
+\label{chap:Problem 1}
+\begin{align*}
+    r &= \sqrt{x^2 + y^2} & \theta &= \tan^-1 \frac{y}{x}\\
+    \pder{r}{x} &= \frac{x}{\sqrt{x^2+y^2}} & \pder{\theta}{x} &= \frac{-y}{y^2+x^2}\\
+    \pder{r}{y} &= \frac{y}{\sqrt{x^2+y^2}} & \pder{\theta}{y} &= \frac{x}{y^2+x^2}\\
+\end{align*}
+\begin{align*}
+    \left|\nabla f\right| ^2 &= \pder{f}{x}^2 + \pder{f}{y}^2\\
+    &= \left(\pder{f}{r} \pder{r}{x} + \pder{f}{\theta} \pder{\theta}{x}\right)^2 +
+       \left(\pder{f}{r} \pder{r}{y} + \pder{f}{\theta} \pder{\theta}{y}\right)^2\\
+    &= \left(\pder{f}{r} \frac{x}{\sqrt{x^2+y^2}} - \pder{f}{\theta} \frac{y}{y^2+x^2}\right)^2 +
+       \left(\pder{f}{r} \frac{y}{\sqrt{x^2+y^2}} + \pder{f}{\theta} \frac{x}{y^2+x^2}\right)^2\\
+\end{align*}
+\begin{align*}
+    x &= r\cos\theta& & & y&= r\sin\theta\\
+    &&x^2 + y^2 &= r^2 \left(\cos^2 \theta + \sin^2\theta\right)\\
+    &&&= r^2
+\end{align*}
+\begin{align*}
+    \left|\nabla f\right| ^2
+    &= \left(\pder{f}{r} \frac{x}{\sqrt{r^2}} - \pder{f}{\theta} \frac{y}{r^2}\right)^2 +
+       \left(\pder{f}{r} \frac{y}{\sqrt{r^2}} + \pder{f}{\theta} \frac{x}{r^2}\right)^2\\
+    &= \left(\pder{f}{r} \frac{r\cos\theta}{r} - \pder{f}{\theta} \frac{r\sin\theta}{r^2}\right)^2 +
+       \left(\pder{f}{r} \frac{r\sin\theta}{r} + \pder{f}{\theta} \frac{r\cos\theta}{r^2}\right)^2\\
+    &= \left(\pder{f}{r} \cos\theta - \pder{f}{\theta} \frac{\sin\theta}{r}\right)^2 +
+       \left(\pder{f}{r} \sin\theta + \pder{f}{\theta} \frac{\cos\theta}{r}\right)^2\\
+\end{align*}
+
+\chapter{Problem 4}
+\label{chap:Problem 1}
+\begin{align*}
+    \frac{dF}{dt} &= \pder{F}{x} \der{x}{t} + \pder{F}{y} \der{y}{t} + \pder{F}{z} \der{z}{t}\\
+    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2yF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{0} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}^2}\\
+    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}^2}\\
+    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} +
+        4\peren{1-t}^2F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} * \peren{1-t}^2\\
+    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} \peren{1 + 2(1-t)}\\
+    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} \peren{3-t}\\
+    &= 2\peren{3-6t+t^2}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)}\\
+\end{align*}
+
+\chapter{Problem 5}
+\label{chap:Problem 1}
+Assume base starts at origin and has diagonal going from $\peren{0,0}$ to $\peren{j,k}$. Through adjusting $a,b,c,d,j,$ and $k$, this model can be shown to represent any possible rectangular prism with varying side lengths.
+\begin{align*}
+    V &= \int_0^j \int_0^k ax + by +c \hspace{2pt} \mathrm{d}y \hspace{1pt} \mathrm{d}x\\
+    &= \int_0^j \peren{k-0} \peren{ax + c} + \frac{bk^2}{2} \hspace{2pt} \mathrm{d}x\\
+    &= kcj+ \frac{jbk^2}{2} \int_0^j kax \hspace{2pt} \mathrm{d}x\\
+    &= kcj+ \frac{jbk^2}{2} + \frac{kaj^2}{2} \\
+    &= kj \peren{\frac{aj}{2} + \frac{bk}{2} + c}\\
+\end{align*}
+\begin{align*}
+    l_0 &= z(0,0) = a(0) + b(0) + c = c\\
+    l_1 &= z(j,0) = a(j) + b(0) + c = aj + c\\
+    l_2 &= z(0,k) = a(0) + b(k) + c = bk + c\\
+    l_3 &= z(j,j) = a(j) + b(k) + c = aj + bk + c\\
+    l_{avg} &= \frac{1}{4} \sum l_i\\ &= \frac{4c + 2aj + 2bk}{4} \\&= c + \frac{aj}{2} + \frac{bk}{2}\\
+\end{align*}
+\begin{align*}
+    A_{base} &= kj\\
+    A_{base} \cdot l_{avg} &= kj \cdot \peren{c + \frac{aj}{2} + \frac{bk}{2}} = \int_0^j \int_0^k ax + by +c \hspace{2pt} \mathrm{d}y \hspace{1pt} \mathrm{d}x\\
+\end{align*}
+$$\text{Which Was What We Wanted}$$
+
+\chapter{Problem 6}
+\label{chap:Problem 1}
+\begin{figure}[!h]
+\centering
+    \begin{tikzpicture}[scale=0.6]
+      \begin{axis}[
+        xlabel=$x$,
+        ylabel={$y$}
+      ]
+        \addplot+[mark=none,domain=0:1,samples=60]{sqrt(4*x)};
+        \addplot+[mark=none,domain=0:1,samples=60]{2*x^2};
+      \end{axis}
+    \end{tikzpicture}
+
+    Plot for $y^2 = 4ax$ and $x^2 = \nicefrac{ay}{2}$ when $a=1$.
+\end{figure}
+
+
+
+
+\begin{align*}
+    y^2 &= 4ax \Longrightarrow y=\sqrt{4ax} \text{ or, equivalently } x = \frac{y^2}{4a}\\
+    x^2 &= \frac{ay}{2} \Longrightarrow x=\sqrt{\frac{ay}{2}} \text{ or, equivalently } y = \frac{2x^2}{a}\\
+\end{align*}
+\begin{align*}
+    A &= \int_0^{2a} \sqrt{\frac{ay}{2}} - \frac{y^2}{4a} \hspace{2pt} \mathrm{d}y &
+     A &= \int_0^{a} \sqrt{4ax} - \frac{2x^2}{a} \hspace{2pt} \mathrm{d}x\\
+    &= \sqrt{\frac{a}{2}} \int_0^{2a} \sqrt{y}\hspace{2pt} \mathrm{d}y - \frac{1}{4a} \int_0^{2a} y^2 \hspace{2pt} \mathrm{d}y &
+     &= 2\sqrt{a} \int_0^{a} \sqrt{x} \hspace{2pt} \mathrm{d}x- \frac{2}{a} \int_0^{a} x^2 \hspace{2pt} \mathrm{d}x\\
+    &= \sqrt{\frac{a}{2}} \left[\frac{2y^{\nicefrac{3}{2}}}{3}\right]_0^{2a}-
+            \frac{1}{4a}  \left[\frac{y^3}{3}\right]_0^{2a} &
+     &= 2\left[\frac{2}{3} x \sqrt{ax}\right]_0^a -
+            \frac{2}{a} \left[\frac{y^3}{3}\right]_0^{a}\\
+     &= \sqrt{\frac{a}{2}}\frac{4a\sqrt{2a}}{3} - \frac{2a^2}{3} & &= \frac{4a^2}{3} - \frac{2a^2}{3}\\
+     &= \frac{2a^2}{3} & &= \frac{2a^2}{3}\\
+\end{align*}
+
+
+
+\chapter{Problem 7}
+\label{chap:Problem 1}
+\begin{align*}
+    I^2 = \int_0^\infty \negmedspace e^{-x^2} \hspace{2pt} \mathrm{d} x
+        \int_0^\infty \negmedspace e^{-y^2} \hspace{2pt} \mathrm{d} y
+        &= \int_0^\infty \negthickspace \int_0^\infty \negmedspace e^{-\peren{x^2+y^2}} \hspace{2pt} \mathrm{d} x \hspace{1pt} \mathrm{d} y\\
+        &= \int_0^{\nicefrac{\pi}{2}} \negthickspace \int_0^\infty \negmedspace e^{-r^2}r \hspace{2pt} \mathrm{d} r \hspace{1pt} \mathrm{d} \theta\\
+        &= -\frac{1}{2} \int_0^{\nicefrac{\pi}{2}} \negthickspace \int_0^{-\infty} \negmedspace e^{u} \hspace{2pt} \mathrm{d} u \hspace{1pt} \mathrm{d} \theta\\
+        &= -\frac{1}{2} \int_0^{\nicefrac{\pi}{2}} \negmedspace e^{-\infty} - e^{0} \hspace{2pt} \mathrm{d} \theta\\
+        &= -\frac{1}{2} \int_0^{\nicefrac{\pi}{2}} \negmedspace -1 \hspace{2pt} \mathrm{d} \theta\\
+        I^2 &= \nicefrac{\pi}{4}\\
+        I = \int_0^\infty \negmedspace e^{-x^2} \hspace{2pt} \mathrm{d} x &= \frac{\sqrt{\pi}}{2}\\
+\end{align*}
+
+
+\chapter{Problem 8}
+\label{chap:Problem 1}
+
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[>=latex,scale=0.5]
+
+% Draw the lines at multiples of pi/12
+\foreach \ang in {0,...,31} {
+  \draw [lightgray] (0,0) -- (\ang * 180 / 16:4);
+}
+
+% Concentric circles and radius labels
+
+\draw [lightgray] (0,0) circle (4);
+\draw (0,0) circle (2.26);
+
+\node [fill=white] at (4, 0) [below] {\scriptsize $a$};
+\node [fill=white] at (-4, 0) [below] {\scriptsize $a$};
+\node [fill=white] at (2.26, 0) [above] {\scriptsize $\frac{16a}{9\pi}$};
+\node [fill=white] at (-2.26, 0) [above] {\scriptsize $\frac{16a}{9\pi}$};
+
+% Add the labels at multiples of pi/4
+\foreach \ang/\lab/\dir in {
+  0/0/right,
+  1/{\pi/4}/{above right},
+  2/{\pi/2}/above,
+  3/{3\pi/4}/{above left},
+  4/{\pi}/left,
+  5/{5\pi/4}/{below left},
+  7/{7\pi/4}/{below right},
+  6/{3\pi/2}/below} {
+  \draw (0,0) -- (\ang * 180 / 4:4.1);
+  \node [fill=white] at (\ang * 180 / 4:4.2) [\dir] {\scriptsize $\lab$};
+}
+
+\fill [fill=black!50!black, opacity=0.3] plot [domain=0:pi/2] (xy polar cs:angle=\x r,radius= {4*sin(2*\x r)});
+\draw [thick,color=black,domain=0:2*pi,samples=200,smooth] plot (xy polar cs:angle=\x r,radius= {4*sin(2*\x r)});
+
+\end{tikzpicture}
+\end{figure}
+
+The area of entire curve will be that of shaded reigion, times 4. Average distance from origin of reigion will trivially be 0, as can be proven by invoking the argument of symmetry about $x=0$ and $y=0$. Perhaps the question is asking the average distance from origin for a single lobe? This can be shown to be $\frac{16a}{9\pi}$, and is marked on the above plot.
+\begin{align*}
+    A &= 4\int_0^{\nicefrac{\pi}{2}} \int_0^{a\sin{2\theta}} r \hspace{2pt} \mathrm{d} r \hspace{1pt} \mathrm{d} \theta &
+        \bar{D} &= \frac{1}{\frac{A}{4}} \int_0^{\nicefrac{\pi}{2}} \int_0^{a\sin{2\theta}} r\sqrt{x^2 + y^2} \hspace{2pt} \mathrm{d} r \hspace{1pt} \mathrm{d} \theta \\
+     &= 4\frac{1}{2} \left. \int_0^{\nicefrac{\pi}{2}} r^2\right|_0^{a\sin{2\theta}} \hspace{2pt} \mathrm{d}\theta&
+         &= \frac{8}{a^2\pi} \int_0^{\nicefrac{\pi}{2}} \int_0^{a\sin{2\theta}} r\sqrt{r^2\peren{\cos^2 \theta + \sin^2 \theta}} \hspace{2pt} \mathrm{d} r \hspace{1pt} \mathrm{d} \theta \\
+    &= 4\frac{a^2}{2} \int_0^{\nicefrac{\pi}{2}} \sin^2\peren{2\theta} \hspace{2pt} \mathrm{d}\theta&
+         &= \frac{8}{a^2\pi} \int_0^{\nicefrac{\pi}{2}} \int_0^{a\sin{2\theta}} r^2 \hspace{2pt} \mathrm{d} r \hspace{1pt} \mathrm{d} \theta \\
+    &= 4\frac{a^2}{2} \int_0^{\nicefrac{\pi}{2}} \frac{1-2\cos{4\theta}}{2} \hspace{2pt} \mathrm{d}\theta&
+         &= \frac{8}{a^2\pi} \frac{a^3}{3} \int_0^{\nicefrac{\pi}{2}} \sin^3{2\theta} \hspace{2pt} \mathrm{d} \theta\\
+    &= 4\frac{a^2}{4} \int_0^{\nicefrac{\pi}{2}} 1 \hspace{2pt} \mathrm{d}\theta -
+      \frac{a^2}{2} \int_0^{\nicefrac{\pi}{2}} \negmadspace \peren{-2}\cos{4\theta} \hspace{2pt} \mathrm{d}\theta&
+         &= \frac{4a}{3\pi} \int_0^{\nicefrac{\pi}{2}} 3\sin{\theta} - \sin{3\theta} \hspace{2pt} \mathrm{d} \theta\\
+    &= 4\frac{a^2}{4} \int_0^{\nicefrac{\pi}{2}} 1 \hspace{2pt} \mathrm{d}\theta - 0&
+     &= \frac{2a}{3\pi} \peren{3-\frac{1}{3}}\\
+    A &= 4\frac{a^2\pi}{8} = \frac{a^2\pi}{2}  &    \bar{D} &= \frac{2a}{3\pi} \cdot \frac{8}{3} = \frac{16a}{9\pi}\\
+\end{align*}
 
 
 
