@@ -271,8 +271,8 @@ This includes:
   Empirically determine min and max from original \(f(x,y)\):
 
   \begin{align*}
-  \text{Min: }& &f \left(\frac{-3}{\sqrt{14}}, \frac{-2}{\sqrt{14}}, \frac{-1}{\sqrt{14}}\right) =\frac{-3}{\sqrt{14}}+ \frac{-2}{\sqrt{14}}+ \frac{-1}{\sqrt{14}} = \frac{-6}{\sqrt{14}}\\
-  \text{Max: }& &f \left(\frac{3}{\sqrt{14}}, \frac{2}{\sqrt{14}}, \frac{1}{\sqrt{14}}\right) =\frac{3}{\sqrt{14}}+ \frac{2}{\sqrt{14}}+ \frac{1}{\sqrt{14}} = \frac{6}{\sqrt{14}}
+  \text{Min: }& &f \left(\frac{-3}{\sqrt{14}}, \frac{-2}{\sqrt{14}}, \frac{-1}{\sqrt{14}}\right) =3\frac{-3}{\sqrt{14}}+ 2\frac{-2}{\sqrt{14}}+ \frac{-1}{\sqrt{14}} = \frac{-14}{\sqrt{14}}\\
+  \text{Max: }& &f \left(\frac{3}{\sqrt{14}}, \frac{2}{\sqrt{14}}, \frac{1}{\sqrt{14}}\right) =3\frac{3}{\sqrt{14}}+ 2\frac{2}{\sqrt{14}}+ \frac{1}{\sqrt{14}} = \frac{14}{\sqrt{14}}
   \end{align*}
 
 
@@ -473,9 +473,9 @@ This includes:
 
   \begin{align*}
   \frac{dw}{dt} &= \frac{\partial w}{\partial u} \frac{d u}{dt} + \frac{\partial w}{\partial v} \frac{d v}{dt}\\
-  &= \frac{2u}{(u^2+v^2)^2} (-2\sin(2t))+ \frac{2v}{(u^2+v^2)^2} (2\cos(2t))\\
-  &= \frac{2\cos(2t)}{(\cos(2t)^2+\sin(2t)^2)^2} (-2\sin(2t))+ \frac{2\sin(2t)}{(\cos(2t)^2+\sin(2t)^2)^2} (2\cos(2t))\\
-  &=2\cos(2t)(-2\sin(2t)) + 2\sin(2t) (2\cos(2t))\\
+  &= \frac{-2u}{(u^2+v^2)^2} (-2\sin(2t))+ \frac{-2v}{(u^2+v^2)^2} (2\cos(2t))\\
+  &= \frac{2\cos(2t)}{(\cos(2t)^2+\sin(2t)^2)^2} (2\sin(2t))- \frac{2\sin(2t)}{(\cos(2t)^2+\sin(2t)^2)^2} (2\cos(2t))\\
+  &=2\cos(2t)(2\sin(2t)) - 2\sin(2t) (2\cos(2t))\\
   &=0
   \end{align*}
 
@@ -552,7 +552,7 @@ This includes:
   Finding \(\frac{\partial p}{\partial x}\):
 
   \begin{align*}
-  \frac{\partial p}{\partial x} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial x} + \frac{\partial p}{\partial u} \frac{\partial u}{\partial x}\\
+  \frac{\partial p}{\partial x} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial x} + \frac{\partial p}{\partial w} \frac{\partial w}{\partial x}\\
   \end{align*}
 
 
@@ -560,7 +560,7 @@ This includes:
   Finding \(\frac{\partial p}{\partial y}\):
 
   \begin{align*}
-  \frac{\partial p}{\partial y} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial y} + \frac{\partial p}{\partial u} \frac{\partial u}{\partial y}\\
+  \frac{\partial p}{\partial y} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial y} + \frac{\partial p}{\partial w} \frac{\partial w}{\partial y}\\
   \end{align*}
 
 
@@ -568,7 +568,7 @@ This includes:
   Finding \(\frac{\partial p}{\partial z}\):
 
   \begin{align*}
-  \frac{\partial p}{\partial x} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial z} + \frac{\partial p}{\partial u} \frac{\partial u}{\partial z}\\
+  \frac{\partial p}{\partial x} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial z} + \frac{\partial p}{\partial w} \frac{\partial w}{\partial z}\\
   \end{align*}
 
 
@@ -576,7 +576,7 @@ This includes:
   Finding \(\frac{\partial p}{\partial t}\):
 
   \begin{align*}
-  \frac{\partial p}{\partial y} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial t} + \frac{\partial p}{\partial u} \frac{\partial u}{\partial t}\\
+  \frac{\partial p}{\partial y} &= \frac{\partial p}{\partial v} \frac{\partial v}{\partial t} + \frac{\partial p}{\partial w} \frac{\partial w}{\partial t}\\
   \end{align*}
 
 
@@ -850,8 +850,8 @@ The enclosed volume is thus bounded by $x^2 + y^2 \leq 4$ on the $x-y$ plane, th
     &= \int_0^{\pi} \left. \frac{r^4}{4} \right|_0^{2a\sin^4\theta}\hspace{2pt} \mathrm{d} \theta  \\
     &= \int_0^{\pi} \frac{16a^4\sin^4 \theta}{4} \hspace{2pt} \mathrm{d} \theta \\
     &= 4a^4\int_0^{\pi} \sin^4 \theta \hspace{2pt} \mathrm{d} \theta \\
-    &= \frac{4a^4}{2}\int_0^{\pi} 3 - 4\cos 2\theta + \cos 4\theta \hspace{2pt} \mathrm{d} \theta \\
-    &= \frac{4a^4}{2}\int_0^{\pi} 3  \hspace{2pt} \mathrm{d} \theta \\
+    &= \frac{a^4}{2}\int_0^{\pi} 3 - 4\cos 2\theta + \cos 4\theta \hspace{2pt} \mathrm{d} \theta \\
+    &= \frac{a^4}{2}\int_0^{\pi} 3  \hspace{2pt} \mathrm{d} \theta \\
     &= \frac{3\pi a^4}{2}
 \end{align*}
 It is once more convienent to make use of the fact that $\sin$ and $\cos$ will always have an integral of 0 when their operand iterates over an integral number of periods.
@@ -967,7 +967,7 @@ Setting partials to 0:
 \begin{align*}
     \pder{L}{x} &= 2x - 2y - 2\lambda x = 0 &&& \pder{L}{y} &= 14y - 2x - 8\lambda y = 0\\
     x &= \frac{y}{1-\lambda}&&  & y &= \frac{x}{7-4\lambda}\\
-    &&x &= \frac{\frac{x}{2-4\lambda}}{1-\lambda}&&\\
+    &&x &= \frac{\frac{x}{7-4\lambda}}{1-\lambda}&&\\
     && \left(7-4\lambda\right)\left(1-\lambda\right) &= 1&&\\
     &&  6 - 11\lambda + 4\lambda^2&= 0 && \\
     && \lambda &= \left[ \nicefrac{3}{4}, 2\right]\\
@@ -1016,13 +1016,12 @@ Plugging back into original equation, maximums are at $f(\sqrt{\nicefrac{1}{5}},
 \label{chap:Problem 1}
 \begin{align*}
     \frac{dF}{dt} &= \pder{F}{x} \der{x}{t} + \pder{F}{y} \der{y}{t} + \pder{F}{z} \der{z}{t}\\
-    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2yF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{0} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}^2}\\
-    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}^2}\\
-    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} +
-        4\peren{1-t}^2F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} * \peren{1-t}^2\\
-    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} \peren{1 + 2(1-t)}\\
-    &= 2\peren{1-t}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)} \peren{3-t}\\
-    &= 2\peren{3-6t+t^2}F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)}\\
+    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2yF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{0} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}}\\
+    &= -2xF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-1} + -2zF_0e^{-\left(x^2 + y^2 +z^2\right)} * \peren{-2\peren{1-t}}\\
+    &= F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)}
+        \peren{2\peren{1-t} + 2\peren{1-t}^2\peren{2\peren{1-t}}}\\
+    &= F_0e^{-\left(\peren{1-t}^2 + \peren{\peren{1-t}^2}^2\right)}
+        \peren{2\peren{1-t} + 4\peren{1-t}^3}\\
 \end{align*}
 
 \chapter{Problem 5}
